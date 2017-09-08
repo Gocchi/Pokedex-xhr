@@ -1,6 +1,7 @@
 var cargarPagina= function(){
 	cargarPokemons();
-	$(document).on("click", ".pokemon", mostrarDetallePokemon);
+	
+  $(document).on("click", ".pokemon", mostrarDetallePokemon);
 }
 var cargarPokemons=function(){
 	var url= "http://pokeapi.co/api/v2/pokemon-species";
@@ -9,28 +10,7 @@ var cargarPokemons=function(){
 		mostrarPokemones(pokemones);
 	});
 }
-var arregloImagenes = [
-    {"src":"assets/img/1bulbasaur.png"},
-    {"src":"assets/img/2ivysaur.png"},
-    {"src":"assets/img/3venusaur.png"},
-    {"src":"assets/img/4charmander.png"},
-    {"src":"assets/img/5charmeleon.png"},
-    {"src":"assets/img/6charizard.png"},
-    {"src":"assets/img/7squirtle.png"},
-    {"src":"assets/img/8Wartortle.png"},
-    {"src":"assets/img/9Blastoise.png"},
-    {"src":"assets/img/10Caterpie.png"},
-    {"src":"assets/img/11Metapod.png"},
-    {"src":"assets/img/12Butterfree.png"},
-    {"src":"assets/img/13Weedle.png"},
-    {"src":"assets/img/14Kakuna.png"},
-    {"src":"assets/img/15Beedrill.png"},
-    {"src":"assets/img/16Pidgey.png"},
-    {"src":"assets/img/17Pidgeotto.png"},
-    // {"url":"img/18Pidgeotto.png"},
-    {"src":"assets/img/19Rattata.png"},
-    {"src":"assets/img/20Raticate.png"}
-    ]
+
 
 var mostrarPokemones= function(pokemones){
 	pokemones.forEach(function(pokemones, posicion){
@@ -73,3 +53,17 @@ var mostrarDetallePokemon =function(){
 	 });
 };
 $(document).ready(cargarPagina);  
+
+
+var mostrarPokemones= function(pokemones){
+	pokemones.forEach(function(pokemones){
+		var $ul= $("#pokemones");
+		var $li =$("<li />");
+
+		$ul.append($li);
+		$li.text(pokemones.name);
+
+	});
+}
+$(document).ready(cargarPagina);
+
